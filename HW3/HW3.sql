@@ -61,14 +61,14 @@ FROM customers c
 LEFT JOIN place pl ON c.cid = pl.cid
 LEFT JOIN contain co ON pl.oid = co.oid
 LEFT JOIN products p ON co.pid = p.pid
-WHERE p.name LIKE '%SATA%'  -- or p.category = 'SATA', depending on your data
+WHERE p.name LIKE '%SATA%'  
 AND c.cid NOT IN (
     SELECT DISTINCT c2.cid
     FROM customers c2
     LEFT JOIN place pl2 ON c2.cid = pl2.cid
     LEFT JOIN contain co2 ON pl2.oid = co2.oid
     LEFT JOIN products p2 ON co2.pid = p2.pid
-    WHERE p2.name LIKE '%Router%'  -- or p2.category = 'Router'
+    WHERE p2.name LIKE '%Router%' 
 );
 
 -- 4
